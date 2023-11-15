@@ -10,7 +10,10 @@
 require 'faker'
 puts('Adding Restaurnats .....');
 
+
 25.times do
-  Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address,
-                    phone_number: Faker::PhoneNumber.phone_number, category: Faker::Restaurant.type)
+  cate = ["chinese", "italian", "japanese", "french", "belgian"].sample(1)
+  res = Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address,
+                    phone_number: Faker::PhoneNumber.phone_number, category: cate[0])
+  puts(res.valid?)
 end
